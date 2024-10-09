@@ -1,16 +1,8 @@
 import type { Metadata } from "next";
-import Header from "./components/header/Header";
-import CurrentAnime from "./components/home/CurrentAnime";
-import RecommendedAnime from "./components/home/RecommendedAnime";
+import Home from "./components/home/Home";
 
 export default function IndexPage() {
-  return (
-    <>
-      <Header />
-      <CurrentAnime />
-      <RecommendedAnime />
-    </>
-  );
+  return <Home />;
 }
 
 export const metadata: Metadata = {

@@ -1,5 +1,5 @@
 "use client";
-import { useGetCurrentAnimeQuery } from "@/lib/features/anime/animeApi";
+import { AnimeResponse } from "@/app/types/types";
 import Slider from "react-slick";
 import { Card } from "./Card";
 var settings = {
@@ -38,32 +38,27 @@ var settings = {
     },
   ],
 };
-const CurrentAnime = () => {
-  const { data: animes, error, isLoading, isSuccess } = useGetCurrentAnimeQuery();
-  if (error) return <div>Error fetching current anime</div>;
-  if (isLoading) return <div>Loading...</div>;
-  if (isSuccess) {
-    return (
-      <div className="flex flex-col items-center py-4 px-8">
-        <h2 className="text-xl font-bold mb-3">Current Anime</h2>
-        <div className="w-full mx-auto relative">
-          {" "}
-          <Slider {...settings}>
-            {animes.data.map((anime) => (
-              <div key={anime.mal_id}>
-                <Card
-                  image={anime?.images?.jpg?.large_image_url}
-                  title={anime.title}
-                  synopsis={anime.synopsis}
-                  rating={anime.score}
-                />
-              </div>
-            ))}
-          </Slider>
-        </div>
+const CurrentAnime = ({ animes }: { animes: AnimeResponse }) => {
+  return (
+    <div className="flex flex-col items-center py-4 px-8">
+      <h2 className="text-xl font-bold mb-3">Current Anime</h2>
+      <div className="w-full mx-auto relative">
+        {" "}
+        <Slider {...settings}>
+          {animes.data.map((anime) => (
+            <div key={anime.mal_id}>
+              <Card
+                image={anime?.images?.jpg?.large_image_url}
+                title={anime.title}
+                synopsis={anime.synopsis}
+                rating={anime.score}
+              />
+            </div>
+          ))}
+        </Slider>
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default CurrentAnime;
