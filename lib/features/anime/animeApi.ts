@@ -1,4 +1,4 @@
-import { AnimeResponse, NewEpisode } from "@/app/types/types";
+import { Anime, AnimeDetail, AnimeResponse, NewEpisode } from "@/app/types/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const animeApi = createApi({
@@ -25,7 +25,12 @@ export const animeApi = createApi({
       query: () => "/watch/episodes",
       providesTags: ["PromoAnime"],
     }),
+    getAnimeDetail: build.query<Anime & AnimeDetail, string>({
+      query: (id) => `/anime/${id}/full`,
+      providesTags: (result, error, id) => [{ type: "Anime", id }],
+    }),
   }),
 });
 
-export const { useGetCurrentAnimeQuery, useGetPromoAnimeQuery, useGetRecommendedAnimeQuery } = animeApi;
+export const { useGetCurrentAnimeQuery, useGetPromoAnimeQuery, useGetRecommendedAnimeQuery, useGetAnimeDetailQuery } =
+  animeApi;

@@ -1,5 +1,6 @@
 "use client";
 import { AnimeResponse } from "@/app/types/types";
+import { useRouter } from "next/navigation";
 import Slider from "react-slick";
 import { Card } from "./Card";
 var settings = {
@@ -9,15 +10,32 @@ var settings = {
   speed: 500,
   slidesToShow: 5,
   slidesToScroll: 4,
-  initialSlide: 0,
-  variableWidth: true,
+  initialSlide: 5,
+  variableWidth: false,
   responsive: [
+    {
+      breakpoint: 1280,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+        dots: true,
+      },
+    },
     {
       breakpoint: 1024,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 3,
         infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 768, // New breakpoint between 1024 and 600
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
         dots: true,
       },
     },
@@ -39,14 +57,14 @@ var settings = {
   ],
 };
 const CurrentAnime = ({ animes }: { animes: AnimeResponse }) => {
+  const router = useRouter();
   return (
     <div className="flex flex-col items-center py-4 px-8">
       <h2 className="text-xl font-bold mb-3">Current Anime</h2>
       <div className="w-full mx-auto relative">
-        {" "}
         <Slider {...settings}>
           {animes.data.map((anime) => (
-            <div key={anime.mal_id}>
+            <div key={anime.mal_id} onClick={() => router.push(`/anime/detail/${anime.mal_id}`)}>
               <Card
                 image={anime?.images?.jpg?.large_image_url}
                 title={anime.title}
