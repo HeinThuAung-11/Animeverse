@@ -1,4 +1,4 @@
-interface Image {
+export interface Image {
   image_url: string | null;
   small_image_url: string | null;
   large_image_url: string | null;

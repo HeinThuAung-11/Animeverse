@@ -64,7 +64,10 @@ const CurrentAnime = ({ animes }: { animes: AnimeResponse }) => {
       <div className="w-full mx-auto relative">
         <Slider {...settings}>
           {animes.data.map((anime) => (
-            <div key={anime.mal_id} onClick={() => router.push(`/anime/detail/${anime.mal_id}`)}>
+            <div
+              key={anime.mal_id}
+              onClick={() => router.push(`/anime/detail/${anime.mal_id}`)}
+              className="cursor-pointer">
               <Card
                 image={anime?.images?.jpg?.large_image_url}
                 title={anime.title}
