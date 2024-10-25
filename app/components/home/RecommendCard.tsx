@@ -24,10 +24,10 @@ export function RecommendCard(anime: {
       <img
         src={anime?.entry?.images?.jpg?.large_image_url || anime?.entry?.images?.jpg?.small_image_url || " "}
         alt={anime?.entry?.title || ""}
-        className="h-[380px]"
+        className="h-[380px] w-[240px] object-cover"
       />
-      <h3 className="text-sm mb-2 text-center w-[250px]">{anime?.entry?.title}</h3>
-      <h3 className="text-sm mb-2 text-center w-[250px]">{anime?.episodes?.[0]?.title}</h3>
+      <h3 className="text-sm mb-2 text-center w-[240px]">{anime?.entry?.title}</h3>
+      <h3 className="text-sm mb-2 text-center w-[240px]">{anime?.episodes?.[0]?.title}</h3>
     </div>
   );
 }

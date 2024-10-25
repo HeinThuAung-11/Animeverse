@@ -1,0 +1,4 @@
+add Review
+add character detail and voice actor detail
+add search function
+add genre function

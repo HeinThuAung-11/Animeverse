@@ -1,4 +1,4 @@
-import { Anime, AnimeDetail, AnimeResponse, NewEpisode } from "@/app/types/types";
+import { Anime, AnimeDetail, AnimeResponse, Characters, Episodes, NewEpisode } from "@/app/types/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const animeApi = createApi({
@@ -29,8 +29,32 @@ export const animeApi = createApi({
       query: (id) => `/anime/${id}/full`,
       providesTags: (result, error, id) => [{ type: "Anime", id }],
     }),
+    getAnimeEpisodes: build.query<Episodes, string>({
+      query: (id) => `/anime/${id}/episodes`,
+      providesTags: (result, error, id) => [{ type: "Anime", id }],
+    }),
+    getAnimeCharacters: build.query<Characters, string>({
+      query: (id) => `/anime/${id}/characters`,
+      providesTags: (result, error, id) => [{ type: "Anime", id }],
+    }),
+    getAnimeStats: build.query<NewEpisode, string>({
+      query: (id) => `/anime/${id}/moreinfo`,
+      providesTags: (result, error, id) => [{ type: "Anime", id }],
+    }),
+    getAnimeReviews: build.query<NewEpisode, string>({
+      query: (id) => `/anime/${id}/forum`,
+      providesTags: (result, error, id) => [{ type: "Anime", id }],
+    }),
   }),
 });
 
-export const { useGetCurrentAnimeQuery, useGetPromoAnimeQuery, useGetRecommendedAnimeQuery, useGetAnimeDetailQuery } =
-  animeApi;
+export const {
+  useGetCurrentAnimeQuery,
+  useGetPromoAnimeQuery,
+  useGetRecommendedAnimeQuery,
+  useGetAnimeDetailQuery,
+  useLazyGetAnimeEpisodesQuery,
+  useLazyGetAnimeCharactersQuery,
+  useLazyGetAnimeStatsQuery,
+  useLazyGetAnimeReviewsQuery,
+} = animeApi;

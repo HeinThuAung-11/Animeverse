@@ -60,7 +60,7 @@ const CurrentAnime = ({ animes }: { animes: AnimeResponse }) => {
   const router = useRouter();
   return (
     <div className="flex flex-col items-center py-4 px-8">
-      <h2 className="text-xl font-bold mb-3">Current Anime</h2>
+      <h2 className="font-bold text-3xl mr-auto ml-10 my-10">Current Animes</h2>
       <div className="w-full mx-auto relative">
         <Slider {...settings}>
           {animes.data.map((anime) => (

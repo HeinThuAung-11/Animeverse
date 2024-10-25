@@ -479,3 +479,147 @@ let obj: Anime = {
   ],
   demographics: [],
 };
+
+let ep = {
+  pagination: {
+    last_visible_page: 1,
+    has_next_page: false,
+  },
+  data: [
+    {
+      mal_id: 1,
+      url: "https://myanimelist.net/anime/54857/Re_Zero_kara_Hajimeru_Isekai_Seikatsu_3rd_Season/episode/1",
+      title: "Theatrical Malice",
+      title_japanese: "劇場型悪意",
+      title_romanji: "Gekijougata Akui ",
+      aired: "2024-10-02T00:00:00+00:00",
+      score: 4.6,
+      filler: false,
+      recap: false,
+      forum_url: "https://myanimelist.net/forum/?topicid=2173075",
+    },
+    {
+      mal_id: 2,
+      url: "https://myanimelist.net/anime/54857/Re_Zero_kara_Hajimeru_Isekai_Seikatsu_3rd_Season/episode/2",
+      title: "A Showdown of Fire and Ice",
+      title_japanese: "氷炎の結末",
+      title_romanji: "Hyouen no Ketsumatsu ",
+      aired: "2024-10-09T00:00:00+00:00",
+      score: 4.58,
+      filler: false,
+      recap: false,
+      forum_url: "https://myanimelist.net/forum/?topicid=2183361",
+    },
+    {
+      mal_id: 3,
+      url: null,
+      title: "Gorgeous Tiger",
+      title_japanese: "ゴージャス・タイガー",
+      title_romanji: "Gorgeous Tiger ",
+      aired: "2024-10-16T00:00:00+00:00",
+      score: 4.6,
+      filler: false,
+      recap: false,
+      forum_url: "https://myanimelist.net/forum/?topicid=2184502",
+    },
+    {
+      mal_id: 4,
+      url: null,
+      title: "Operation: Take Back the Government Office",
+      title_japanese: "都市庁舎奪還作戦",
+      title_romanji: "Toshi Chousha Dakkan Sakusen ",
+      aired: "2024-10-23T00:00:00+00:00",
+      score: 4.64,
+      filler: false,
+      recap: false,
+      forum_url: "https://myanimelist.net/forum/?topicid=2185726",
+    },
+  ],
+};
+
+let character = {
+  character: {
+    mal_id: 147857,
+    url: "https://myanimelist.net/character/147857/Miharu_Ayase",
+    images: {
+      jpg: {
+        image_url: "https://cdn.myanimelist.net/images/characters/5/553316.jpg?s=923a7dd0ecfe6d029468bf3e229511cc",
+      },
+      webp: {
+        image_url: "https://cdn.myanimelist.net/images/characters/5/553316.webp?s=923a7dd0ecfe6d029468bf3e229511cc",
+        small_image_url:
+          "https://cdn.myanimelist.net/images/characters/5/553316t.webp?s=923a7dd0ecfe6d029468bf3e229511cc",
+      },
+    },
+    name: "Ayase, Miharu",
+  },
+  role: "Main",
+  favorites: 62,
+  voice_actors: [
+    {
+      person: {
+        mal_id: 42204,
+        url: "https://myanimelist.net/people/42204/Sayaka_Harada",
+        images: {
+          jpg: {
+            image_url: "https://cdn.myanimelist.net/images/voiceactors/2/61302.jpg?s=99fd6b7ae1c9e55f517d5bbb93794f7b",
+          },
+        },
+        name: "Harada, Sayaka",
+      },
+      language: "Japanese",
+    },
+    {
+      person: {
+        mal_id: 14285,
+        url: "https://myanimelist.net/people/14285/Sarah_Williams",
+        images: {
+          jpg: {
+            image_url: "https://cdn.myanimelist.net/images/voiceactors/2/20265.jpg?s=595bd3fc3e0f8d6ec9d45a161395629c",
+          },
+        },
+        name: "Williams, Sarah",
+      },
+      language: "English",
+    },
+    {
+      person: {
+        mal_id: 69543,
+        url: "https://myanimelist.net/people/69543/Sara_Feria",
+        images: {
+          jpg: {
+            image_url: "https://cdn.myanimelist.net/images/voiceactors/2/82128.jpg?s=3a8dcb8f115ae874a26300fc17828433",
+          },
+        },
+        name: "Feria, Sara",
+      },
+      language: "Spanish",
+    },
+    {
+      person: {
+        mal_id: 52930,
+        url: "https://myanimelist.net/people/52930/Nathalia_Guilen",
+        images: {
+          jpg: {
+            image_url: "https://cdn.myanimelist.net/images/voiceactors/2/70048.jpg?s=d1ad12ac3b491b61f5883f5828618f21",
+          },
+        },
+        name: "Guilen, Nathalia",
+      },
+      language: "Portuguese (BR)",
+    },
+    {
+      person: {
+        mal_id: 55182,
+        url: "https://myanimelist.net/people/55182/Ludivine_Deworst",
+        images: {
+          jpg: {
+            image_url: "https://cdn.myanimelist.net/images/voiceactors/1/69766.jpg?s=8c5f4678857034b2c56d4cf9ee54f89e",
+          },
+        },
+        name: "Deworst, Ludivine",
+      },
+      language: "French",
+    },
+  ],
+};

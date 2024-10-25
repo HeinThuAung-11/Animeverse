@@ -128,7 +128,7 @@ export type Detail = {
 export type AnimeDetail = {
   data: Anime & Detail;
 };
-type Pagination = {
+export type Pagination = {
   last_visible_page: number | null;
   has_next_page: boolean | null;
   current_page: number | null;
@@ -143,14 +143,14 @@ export type AnimeResponse = {
   pagination: Pagination;
 };
 
-type Episode = {
+export type Episode = {
   mal_id: number | null;
   url: string | null;
   title: string | null;
   premium: boolean | null;
 };
 
-type Entry = {
+export type Entry = {
   mal_id: number | null;
   url: string | null;
   images: {
@@ -167,4 +167,74 @@ export type NewEpisode = {
     region_locked: boolean | null;
   }[];
   pagination: Pagination;
+};
+
+export type Episodes = {
+  pagination: {
+    last_visible_page: number;
+    has_next_page: boolean;
+  };
+  data:
+    | (
+        | {
+            mal_id: number;
+            url: string;
+            title: string;
+            title_japanese: string;
+            title_romanji: string;
+            aired: string;
+            score: number;
+            filler: boolean;
+            recap: boolean;
+            forum_url: string;
+          }
+        | {
+            mal_id: number;
+            url: null;
+            title: string;
+            title_japanese: string;
+            title_romanji: string;
+            aired: string;
+            score: number;
+            filler: boolean;
+            recap: boolean;
+            forum_url: string;
+          }
+      )[]
+    | undefined;
+};
+export type Characters = {
+  data:
+    | {
+        character: {
+          mal_id: number;
+          url: string;
+          images: {
+            jpg: {
+              image_url: string;
+            };
+            webp: {
+              image_url: string;
+              small_image_url: string;
+            };
+          };
+          name: string;
+        };
+        role: string;
+        favorites: number;
+        voice_actors: {
+          person: {
+            mal_id: number;
+            url: string;
+            images: {
+              jpg: {
+                image_url: string;
+              };
+            };
+            name: string;
+          };
+          language: string;
+        }[];
+      }[]
+    | undefined;
 };
