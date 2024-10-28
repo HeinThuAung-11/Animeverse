@@ -2,6 +2,7 @@ import {
   useLazyGetAnimeCharactersQuery,
   useLazyGetAnimeEpisodesQuery,
   useLazyGetAnimeReviewsQuery,
+  useLazyGetAnimeStaffsQuery,
 } from "@/lib/features/anime/animeApi";
 import { useEffect, useState } from "react";
 import AnimeCharacters from "./characters/AnimeCharacters";
@@ -14,7 +15,7 @@ const AnimeTabs = ({ id, video }: { id: string; video: string }) => {
   const tabs = [
     { name: "Overview", id: "overview" },
     { name: "Characters", id: "characters" },
-    { name: "Reviews", id: "reviews" },
+    { name: "Staffs", id: "staffs" },
   ];
 
   // Lazy queries from RTK Query
@@ -22,6 +23,7 @@ const AnimeTabs = ({ id, video }: { id: string; video: string }) => {
   const [triggerCharacter, { data: animeCharacters, isFetching: isanimeCharactersFetching }] =
     useLazyGetAnimeCharactersQuery();
   const [triggerReviews, { data: reviewsData, isFetching: isReviewsFetching }] = useLazyGetAnimeReviewsQuery();
+  const [triggerStaffs, { data: staffsData, isFetching: isStaffsFetching }] = useLazyGetAnimeStaffsQuery();
   // const [triggerStats, { data: statsData, isFetching: isStatsFetching }] = useLazyGetAnimeStatsQuery();
   useEffect(() => {
     // Trigger the correct query when the tab changes
@@ -29,11 +31,11 @@ const AnimeTabs = ({ id, video }: { id: string; video: string }) => {
       triggerEpisodes(id);
     } else if (activeTab === "characters") {
       triggerCharacter(id);
-    } else if (activeTab === "reviews") {
-      triggerReviews(id);
+    } else if (activeTab === "staffs") {
+      triggerStaffs(id);
     }
-  }, [activeTab, id, triggerCharacter, triggerEpisodes, triggerReviews]);
-  console.log("Reviews", reviewsData);
+  }, [activeTab, id, triggerCharacter, triggerEpisodes, triggerStaffs]);
+  console.log("Staffs", staffsData);
   return (
     <div className="w-full">
       <nav className="flex justify-start space-x-6 bg-[#1A1B20] text-white px-20">
@@ -55,7 +57,7 @@ const AnimeTabs = ({ id, video }: { id: string; video: string }) => {
       <div className="mt-4 px-20">
         {activeTab === "overview" && <Overview video={video} episodes={animeEpisodes} />}
         {activeTab === "characters" && <AnimeCharacters characters={animeCharacters} />}
-        {activeTab === "reviews" && <AnimeReview />}
+        {activeTab === "staffs" && <AnimeReview />}
       </div>
     </div>
   );

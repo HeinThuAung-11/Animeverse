@@ -45,6 +45,10 @@ export const animeApi = createApi({
       query: (id) => `/anime/${id}/forum`,
       providesTags: (result, error, id) => [{ type: "Anime", id }],
     }),
+    getAnimeStaffs: build.query<NewEpisode, string>({
+      query: (id) => `/anime/${id}/staff`,
+      providesTags: (result, error, id) => [{ type: "Anime", id }],
+    }),
   }),
 });
 
@@ -57,4 +61,5 @@ export const {
   useLazyGetAnimeCharactersQuery,
   useLazyGetAnimeStatsQuery,
   useLazyGetAnimeReviewsQuery,
+  useLazyGetAnimeStaffsQuery,
 } = animeApi;

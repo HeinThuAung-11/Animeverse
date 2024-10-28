@@ -11,14 +11,11 @@ const AnimeDetailPage = () => {
   if (isLoading) return <LoaderComponent />;
   if (error) return <div>Error loading anime details</div>;
   if (!animeDetail) return <div>No anime details found</div>;
-
+  console.log(animeDetail);
   return (
     <>
       <Poster animeDetail={animeDetail} />
-      {/* <div className="bg-[#1A1B20] text-white p-4 flex space-x-4 items-center">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Comments</button>
-        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Like</button>
-      </div> */}
+
       <AnimeTabs id={animeDetail?.data?.mal_id?.toString() || ""} video={animeDetail?.data?.trailer?.embed_url ?? ""} />
     </>
   );

@@ -2,7 +2,7 @@ import { AnimeDetail } from "@/app/types/types";
 
 const Poster = ({ animeDetail }: { animeDetail: AnimeDetail }) => {
   return (
-    <div className="relative w-full h-[80vh]">
+    <div className="relative w-full">
       <div
         className="absolute inset-0 bg-cover bg-top bg-no-repeat"
         style={{
