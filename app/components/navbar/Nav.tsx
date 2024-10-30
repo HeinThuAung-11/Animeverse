@@ -41,7 +41,7 @@ export const Nav = () => {
           <button onClick={toggleDropdown} className="text-white focus:outline-none text-2xl">
             Browse
           </button>
-          {isDropdownOpen && <BrowseDropdown />}
+          {isDropdownOpen && <BrowseDropdown setIsDropdownOpen={setIsDropdownOpen} />}
         </div>
       </div>
     </nav>

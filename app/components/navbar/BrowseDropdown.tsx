@@ -3,10 +3,13 @@ import { Divider } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-export const BrowseDropdown: React.FC = () => {
+interface BrowseDropdownProps {
+  setIsDropdownOpen: (isOpen: boolean) => void;
+}
+
+export const BrowseDropdown: React.FC<BrowseDropdownProps> = ({ setIsDropdownOpen }) => {
   const { data: genres } = useGetAnimeGenreQuery();
   const router = useRouter();
-  console.log("genres", genres);
   return (
     <div className="absolute right-0 w-[800px] mt-4 bg-black rounded-md shadow-lg z-50 text-white">
       <div className="flex flex-col md:flex-row p-4">
@@ -26,7 +29,10 @@ export const BrowseDropdown: React.FC = () => {
               <h6
                 className="cursor-pointer hover:underline"
                 key={genre.mal_id}
-                onClick={() => router.push(`/genre?query=${genre.mal_id}&name=${genre.name}`)}>
+                onClick={() => {
+                  setIsDropdownOpen(false);
+                  router.push(`/genre?query=${genre.mal_id}&name=${genre.name}`);
+                }}>
                 {genre.name}
               </h6>
             ))}
