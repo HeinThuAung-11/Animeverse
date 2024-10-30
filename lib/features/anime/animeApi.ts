@@ -1,4 +1,4 @@
-import { Anime, AnimeDetail, AnimeResponse, Characters, Episodes, NewEpisode } from "@/app/types/types";
+import { Anime, AnimeDetail, AnimeResponse, Characters, Episodes, Genres, NewEpisode } from "@/app/types/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const animeApi = createApi({
@@ -49,6 +49,16 @@ export const animeApi = createApi({
       query: (id) => `/anime/${id}/staff`,
       providesTags: (result, error, id) => [{ type: "Anime", id }],
     }),
+    searchAnime: build.query<AnimeResponse, string>({
+      query: (searchTerm: string) => `/anime?q=${searchTerm}`,
+      providesTags: (result, error, id) => [{ type: "Anime", id }],
+    }),
+    getAnimeGenre: build.query<Genres, void>({
+      query: () => `/genres/anime`,
+    }),
+    searchAnimeGenre: build.query<AnimeResponse, string>({
+      query: (genreId: string) => `anime?genres=${genreId}&order_by=popularity`,
+    }),
   }),
 });
 
@@ -62,4 +72,7 @@ export const {
   useLazyGetAnimeStatsQuery,
   useLazyGetAnimeReviewsQuery,
   useLazyGetAnimeStaffsQuery,
+  useSearchAnimeQuery,
+  useSearchAnimeGenreQuery,
+  useGetAnimeGenreQuery,
 } = animeApi;

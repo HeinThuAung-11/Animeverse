@@ -1,5 +1,4 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { BrowseDropdown } from "./BrowseDropdown";
@@ -12,8 +11,7 @@ export const Nav = () => {
   const router = useRouter();
 
   const handleSearch = () => {
-    console.log("Searching for:", searchTerm);
-    // Add your search logic here
+    router.push(`/search?query=${searchTerm}`);
   };
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
@@ -35,12 +33,12 @@ export const Nav = () => {
   return (
     <nav className="bg-primary">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white text-lg cursor-pointer" onClick={() => router.push("/")}>
+        <div className="text-white text-2xl cursor-pointer" onClick={() => router.push("/")}>
           AnimeVerse
         </div>
         <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} handleSearch={handleSearch} />
         <div className="relative" ref={dropdownRef}>
-          <button onClick={toggleDropdown} className="text-white focus:outline-none">
+          <button onClick={toggleDropdown} className="text-white focus:outline-none text-2xl">
             Browse
           </button>
           {isDropdownOpen && <BrowseDropdown />}

@@ -238,3 +238,12 @@ export type Characters = {
       }[]
     | undefined;
 };
+export type Genres = {
+  data: {
+    mal_id: number;
+    type: string;
+    name: string;
+    url: string;
+    count: number;
+  }[];
+};

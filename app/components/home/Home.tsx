@@ -7,7 +7,7 @@ import {
 import LoaderComponent from "../common/loader";
 import Header from "../header/Header";
 import CurrentAnime from "./CurrentAnime";
-import RecommendedAnime from "./RecommendedAnime";
+import WatchNewEpisodes from "./WatchNewEpisodes";
 
 export default function Home() {
   // Fetch current animes
@@ -48,7 +48,7 @@ export default function Home() {
     <>
       {promoAnimes && <Header promos={promoAnimes} />}
       {currentAnimes && <CurrentAnime animes={currentAnimes} />}
-      {recommendedAnimes && <RecommendedAnime animes={recommendedAnimes} />}
+      {recommendedAnimes && <WatchNewEpisodes animes={recommendedAnimes} />}
     </>
   );
 }

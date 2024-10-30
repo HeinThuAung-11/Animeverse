@@ -15,7 +15,6 @@ export default function RootLayout({ children }: Props) {
         <body className="bg-primary text-white">
           <section>
             <Nav />
-
             <main>{children}</main>
           </section>
         </body>

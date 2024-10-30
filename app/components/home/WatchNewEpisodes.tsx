@@ -4,7 +4,7 @@ import { Pagination } from "antd";
 import { useState } from "react";
 import { AnimeCard } from "./AnimationCard";
 
-const RecommendedAnime = ({ animes }: { animes: NewEpisode }) => {
+const WatchNewEpisodes = ({ animes }: { animes: NewEpisode }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const itemsPerPage = 20;
@@ -29,4 +29,4 @@ const RecommendedAnime = ({ animes }: { animes: NewEpisode }) => {
   );
 };
 
-export default RecommendedAnime;
+export default WatchNewEpisodes;
