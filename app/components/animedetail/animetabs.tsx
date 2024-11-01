@@ -7,7 +7,7 @@ import {
 import { useEffect, useState } from "react";
 import AnimeCharacters from "./characters/AnimeCharacters";
 import Overview from "./overview/AnimeOverview";
-import AnimeReview from "./reviews/AnimeReviews";
+import AnimeStaffs from "./staff/AnimeStaffs";
 
 const AnimeTabs = ({ id, video }: { id: string; video: string }) => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -57,7 +57,7 @@ const AnimeTabs = ({ id, video }: { id: string; video: string }) => {
       <div className="mt-4 px-20">
         {activeTab === "overview" && <Overview video={video} episodes={animeEpisodes} />}
         {activeTab === "characters" && <AnimeCharacters characters={animeCharacters} />}
-        {activeTab === "staffs" && <AnimeReview />}
+        {activeTab === "staffs" && <AnimeStaffs staffs={staffsData} />}
       </div>
     </div>
   );

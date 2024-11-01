@@ -1,4 +1,8 @@
+"use client";
+import { useRouter } from "next/navigation";
+
 export const CharacterCard = ({ character, voice_actors, role }: CharacterCard) => {
+  const router = useRouter();
   return (
     <div
       key={character.mal_id}
@@ -11,7 +15,11 @@ export const CharacterCard = ({ character, voice_actors, role }: CharacterCard) 
           className="w-32 h-32 object-cover rounded-md"
         />
         <div className="flex flex-col justify-center items-center w-32 text-center">
-          <h3 className="text-white text-md font-semibold">{character.name}</h3>
+          <h3
+            className="text-white text-md font-semibold cursor-pointer hover:text-purple-500"
+            onClick={() => router.push(`/character?id=${character.mal_id}`)}>
+            {character.name}
+          </h3>
           <h3 className="text-white text-md">{role}</h3>
         </div>
       </div>

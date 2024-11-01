@@ -247,3 +247,38 @@ export type Genres = {
     count: number;
   }[];
 };
+export type StaffsProps = {
+  data?:
+    | {
+        person: {
+          mal_id: number;
+          url: string;
+          images: {
+            jpg: {
+              image_url: string;
+            };
+          };
+          name: string;
+        };
+        positions: string[];
+      }[]
+    | undefined;
+};
+// interface Staff {
+//   person: {
+//     mal_id: number;
+//     name: string;
+//     images: {
+//       jpg: {
+//         image_url: string;
+//       };
+//     };
+//   };
+//   positions: string[];
+// }
+
+// export interface StaffsProps {
+//   staffs?: {
+//     data?: Staff[];
+//   };
+// }

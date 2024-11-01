@@ -1,4 +1,13 @@
-import { Anime, AnimeDetail, AnimeResponse, Characters, Episodes, Genres, NewEpisode } from "@/app/types/types";
+import {
+  Anime,
+  AnimeDetail,
+  AnimeResponse,
+  Characters,
+  Episodes,
+  Genres,
+  NewEpisode,
+  StaffsProps,
+} from "@/app/types/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const animeApi = createApi({
@@ -45,7 +54,7 @@ export const animeApi = createApi({
       query: (id) => `/anime/${id}/forum`,
       providesTags: (result, error, id) => [{ type: "Anime", id }],
     }),
-    getAnimeStaffs: build.query<NewEpisode, string>({
+    getAnimeStaffs: build.query<StaffsProps, string>({
       query: (id) => `/anime/${id}/staff`,
       providesTags: (result, error, id) => [{ type: "Anime", id }],
     }),
